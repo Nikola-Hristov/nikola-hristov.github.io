@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Бележник</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+
+<body>
+    <div class="inputDiv">
+        Дата: <input type="date" name="date" id="date">
+    </div>
+    <div class="inputDiv"> 
+        Предмет: <input type="text" name="course" id="course">
+    </div>
+    <div class="inputDiv">
+        Оценка: <input type="number" name="grade" id="grade">
+    </div>
+    <div class="inputDiv">
+        <button id="addBtn">Добави</button>
+    </div>
+    <table>
+        <thead>
+            <td>Дата</td>
+            <td>Предмет</td>
+            <td>Оценка</td>
+        </thead>
+        <tbody id="grades"></tbody>
+    </table>
+    <script>
+        function addBtnClick() {
+            let dateElement = document.getElementById("date");
+            let date = dateElement.value;
+
+            let courseElement = document.getElementById("course");
+            let course = courseElement.value;
+
+            let gradeElement = document.getElementById("grade");
+            let grade = gradeElement.value;
+
+            if (isGradeValid(grade) && (isDateValid(date))) {
+                let dateTableElement = document.createElement("td");
+                dateTableElement.textContent = date;
+
+                let courseTableElement = document.createElement("td");
+                courseTableElement.textContent = course;
+
+                let gradeTableElement = document.createElement("td");
+                gradeTableElement.textContent = (grade);
+
+                let rowElement = document.createElement("tr");
+                rowElement.appendChild(dateTableElement);
+                rowElement.appendChild(courseTableElement);
+                rowElement.appendChild(gradeTableElement);
+
+                document.getElementById("grades").appendChild(rowElement);
+            }
+
+            dateElement.value = "";
+            courseElement.value = "";
+            gradeElement.value = "";
+        }
+
+        function isGradeValid(grade) {
+            return (grade >= 2 && grade <= 6)
+        }
+
+        function isDateValid(date) {
+            let d = new Date(date);
+
+            const startDate = new Date("2018-09-15");
+
+            const endDate = new Date("2019-06-30");
+
+            return (d >= startDate && d <= endDate);
+        }
+
+        (function () {
+            document.getElementById("addBtn").addEventListener("click", addBtnClick);
+        })()
+    </script>
+</body>
+
+</html>

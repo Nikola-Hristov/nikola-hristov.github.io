@@ -1,0 +1,46 @@
+table {
+    background: #BBB;
+    border: solid #333 2px;
+    border-radius: 8px;
+    width: 50%;
+}
+thead{
+    background: #DDD;
+    color: #FF0000;
+}
+
+thead td{
+    text-align: center;
+}
+
+tbody{
+    background: #777;
+}
+
+tr{
+    border: solid #333;
+    border-radius: 6px;
+    text-align-all: left;
+}
+
+tbody td{
+    text-align: left;
+    color: greenyellow;
+    padding: 3px 15px;
+}
+
+div.inputDiv{
+    color: aqua;
+    background: #333;
+    padding: 3px 10px;
+    border: 2px solid #ddd;
+    border-radius: 7px  
+}
+
+div.inputDiv>input {
+    background:#bbb;
+    margin: 3px 10px;
+    padding: 3px 5px;
+    border: 2px solid #ddd;
+    border-radius: 7px  
+}
